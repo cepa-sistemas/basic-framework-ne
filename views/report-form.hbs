@@ -1,0 +1,69 @@
+<h2>{{s_title}}</h2>
+{{#if b_view}}
+<p style="color: red;">Please type the period of the report <input type="checkbox" id="viewObjects" name="viewObjects" onclick="viewObjects()";</p> 
+<form class="row g-3" action="/report-form/query" method="POST" enctype="application/x-www-form-urlencoded" >
+    <!-- Objects predeterminated -->
+    <div class="col-md-3" id="inputDateFrom0">
+        <label for="inputDateFrom" class="form-label">Date from*</label>
+        <input type="date" class="form-control" id="inputDateFrom" name="inputDateFrom" value="{{d_date}}" >
+    </div>
+
+    <div class="col-md-3" id="inputDateTo0">
+        <label for="inputDateTo" class="form-label">Date to*</label>
+        <input type="date" class="form-control" id="inputDateTo" name="inputDateTo" value="{{d_date}}" >
+    </div>
+
+    <div class="col-12">
+    <button type="submit" class="btn btn-primary">View results</button>
+    </div>
+</form>
+{{/if}}
+
+{{#if b_query}}
+<div>
+    <p>
+        Sample Sheet Report, results for the period from {{d_dateFrom}} to {{d_dateTo}}
+        <span style="float: right"> <a onclick="printSection('container')"> <i class="fas fa-print"  alt="Printicon"> </i> Print report </a> </span>
+        <br>
+    </p>
+
+</div>
+
+<div id="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Service</th>
+                <th scope="col">Name and surname</th>
+                <th scope="col">Citizenship</th>
+                <th scope="col">Role</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+
+
+{{/if}}
+<script>
+    window.onload = function() {
+        //document.getElementById("inputTrainingCenter0").style.display = "none";
+    };
+
+    function viewObjects() {
+    };
+
+    function printSection(el){
+        var getFullContent = document.body.innerHTML;
+        var printsection = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printsection;
+        window.print();
+        document.body.innerHTML = getFullContent;
+    }
+
+
+</script>

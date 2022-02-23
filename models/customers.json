@@ -1,0 +1,12 @@
+[
+    {
+        "n_id":"1", 
+        "s_code": "CODE1", 
+        "s_customer_name": "SERVICE 1", 
+        "s_image": "", 
+        "s_parameter1":"", 
+        "s_signin_href":"/sample-form/CODE1/",
+        "s_linkURL":"",
+        "b_status": 0
+    }
+]

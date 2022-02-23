@@ -1,0 +1,28 @@
+<h2>{{s_title}}</h2>
+<p>Sample form loaded...</p>
+
+<div class="row">
+
+</div>
+{{#if flag}}
+    <div class="toast-container" style="position: absolute; top: 10px; right: 10px;" id="myToast">
+        <div class="{{toastClass}}">
+            <div class="toast-body">
+                {{toastMessage}}
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+<script>
+    function myToast(){
+        //alert("Page is loaded");
+        var element = document.getElementById("myToast");
+
+        /* Create toast instance */
+        var myToast = new bootstrap.Toast(element, {
+            delay: 3000
+        });
+        myToast.show();
+    };
+</script>

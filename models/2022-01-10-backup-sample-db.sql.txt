@@ -1,0 +1,110 @@
+-- MySQL dump 10.16  Distrib 10.1.48-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: sampleDB
+-- ------------------------------------------------------
+-- Server version	10.1.48-MariaDB-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `sampleDB`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sampleDB` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `sampleDB`;
+
+--
+-- Table structure for table `sampleDB_sampleTable`
+--
+
+DROP TABLE IF EXISTS `sampleDB_sampleTable`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sampleDB_sampleTable` (
+  `n_id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `d_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `s_name_surname` varchar(30) NOT NULL,
+  `s_role` varchar(30) NOT NULL,
+  `s_citizenship` varchar(30) NOT NULL,
+  `s_option` varchar(30) NOT NULL,
+  `s_service` varchar(30) NOT NULL,
+  `s_parameter1` varchar(30) NOT NULL,
+  `s_parameter2` varchar(30) NOT NULL,
+  `s_notes` varchar(100) NOT NULL,
+  `b_status` tinyint(1) NOT NULL DEFAULT '1',
+  `d_log_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`n_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Temporary table structure for view `view_sampleTable`
+--
+
+DROP TABLE IF EXISTS `view_sampleTable`;
+/*!50001 DROP VIEW IF EXISTS `view_sampleTable`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `view_sampleTable` (
+  `n_id` tinyint NOT NULL,
+  `d_date` tinyint NOT NULL,
+  `s_name_surname` tinyint NOT NULL,
+  `s_role` tinyint NOT NULL,
+  `s_citizenship` tinyint NOT NULL,
+  `s_session` tinyint NOT NULL,
+  `s_customer` tinyint NOT NULL,
+  `s_parameter1` tinyint NOT NULL,
+  `s_parameter2` tinyint NOT NULL,
+  `s_notes` tinyint NOT NULL,
+  `b_status` tinyint NOT NULL,
+  `d_log_date` tinyint NOT NULL,
+  `SessionDate` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Current Database: `sampleDB`
+--
+
+USE `sampleDB`;
+
+--
+-- Final view structure for view `view_sampleTable`
+--
+
+/*!50001 DROP TABLE IF EXISTS `view_sampleTable`*/;
+/*!50001 DROP VIEW IF EXISTS `view_sampleTable`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`remote`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_sampleTable` AS select `sampleDB_sampleTable`.`n_id` AS `n_id`,`sampleDB_sampleTable`.`d_session_date` AS `d_session_date`,`sampleDB_sampleTable`.`s_name_surname` AS `s_name_surname`,`sampleDB_sampleTable`.`s_role` AS `s_role`,`sampleDB_sampleTable`.`s_citizenship` AS `s_citizenship`,`sampleDB_sampleTable`.`s_session` AS `s_session`,`sampleDB_sampleTable`.`s_customer` AS `s_customer`,`sampleDB_sampleTable`.`s_training_center` AS `s_training_center`,`sampleDB_sampleTable`.`s_sim_model` AS `s_sim_model`,`sampleDB_sampleTable`.`s_notes` AS `s_notes`,`sampleDB_sampleTable`.`b_status` AS `b_status`,`sampleDB_sampleTable`.`d_log_date` AS `d_log_date`,date_format(`sampleDB_sampleTable`.`d_session_date`,'%Y-%m-%d') AS `SessionDate` from `sampleDB_sampleTable` order by `sampleDB_sampleTable`.`d_session_date`,`sampleDB_sampleTable`.`s_customer`,`sampleDB_sampleTable`.`s_session` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-01-10 12:16:05

@@ -1,0 +1,50 @@
+<h2>{{s_title}}</h2>
+<p>Welcome to Vistula Holdings basic prototype</p>
+<div class="row">
+    {{#each serviceData}}
+
+    <div class="card" style="width: 18rem;">
+        <a href="{{this.s_linkURL}}"> <img src="{{this.s_image}}" class="card-img-top" alt="Image"> </a>
+        <div class="card-body">
+            <center> <h5 class="card-title">{{this.s_service_name}}</h5> </center>
+            <p class="card-text">{{this.s_service_description}}.</p>
+            <div class="f00t3r"> 
+                <span class="footerPrice"> <b> {{this.n_price}} </b> </span> 
+                <span class="footerButton"> <a href="{{this.s_linkURL}}" class="btn btn-primary">{{this.s_buton}}</a> </span> 
+            </div> 
+        </div>
+    </div>
+
+    {{/each}}
+
+</div>
+
+{{#if b_flag}}
+    <div class="toast-container" style="position: absolute; top: 10px; right: 10px;" id="myToast">
+        <div class="{{toastClass}}">
+            <div class="toast-body">
+                {{toastMessage}}
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+<script>
+    function myToast(){
+        //alert("Page is loaded");
+        var element = document.getElementById("myToast");
+
+        /* Create toast instance */
+        var myToast = new bootstrap.Toast(element, {
+            delay: 3000
+        });
+        myToast.show();
+    };
+
+	link = document.querySelector('#linkParameters');
+      link.addEventListener('click', function(e) {
+      //p_center = document.querySelector('#p_center').value;
+      //p_sim = document.querySelector('#p_sim').value;
+      //this.href = this.href + "/"+ p_center +"/"+ p_sim;
+	  });
+</script>
