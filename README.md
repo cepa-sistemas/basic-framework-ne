@@ -25,11 +25,10 @@ In Windows, open a git bash terminal to clone and install the prototype.
 
 Use the txt files located in the models folder. 
 
-To create the database use the file [2022-01-10-backup-afgsim-db.sql.txt]
-For Dumping data to table afgsim_signin_form use the file [2022-01-10-backup-afgsim-data.sql.txt]
+To create the database use the file [2022-01-10-backup-sample-db.sql.txt]
 
 The command to restore a data is:
-mysqldump --user=[user] --password=[password] --databases afgsim  < ~/Home/Public/afg-signin-form/models/[file.txt]
+mysqldump --user=[user] --password=[password] --databases sample  < ~/Home/Public/<local folder>-form/models/[file.txt]
 
 ```
 
@@ -66,6 +65,9 @@ type http://localhost:3000/start
 
 
 ```
+
+## Improvements
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please contact Alfredo Celso to have a chat about the changes to implement.
